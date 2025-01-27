@@ -8,7 +8,7 @@ public class Book
 
     public Book(int id, string title)
     {
-        Id = Id;
+        Id = id;
         Title = title;
     }
 }

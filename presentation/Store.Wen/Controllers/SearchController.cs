@@ -15,7 +15,7 @@ namespace Store.Wen.Controllers
 
             var books = bookRepository.GetAllByTitle(query);
 
-            return View();
+            return View(books);
         }
     }
 }
