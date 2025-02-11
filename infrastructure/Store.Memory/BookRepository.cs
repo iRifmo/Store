@@ -1,4 +1,7 @@
-﻿namespace Store.Memory
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.CodeAnalysis;
+
+namespace Store.Memory
 {
     public class BookRepository : IBookRepository
     {
