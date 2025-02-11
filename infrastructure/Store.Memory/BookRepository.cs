@@ -1,4 +1,7 @@
-﻿namespace Store.Memory
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.CodeAnalysis;
+
+namespace Store.Memory
 {
     public class BookRepository : IBookRepository
     {
@@ -9,7 +12,8 @@
             new Book(3, "C Programming Language"),
         };
 
-        public Book[] GetAllByTitle(string titlePart)
+
+        public Book[] GetAllByTitle( string titlePart)
         {
             return books.Where(book => book.Title.Contains(titlePart))
                         .ToArray();

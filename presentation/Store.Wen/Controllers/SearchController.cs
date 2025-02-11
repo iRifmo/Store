@@ -2,19 +2,14 @@
 
 namespace Store.Wen.Controllers
 {
-    public class SearchController : Controller
+    public class SearchController(IBookRepository bookRepository) : Controller
     {
-        private readonly IBookRepository bookRepository;
+        private readonly IBookRepository bookRepository = bookRepository;
 
-        public SearchController(IBookRepository bookRepository)
+        public IActionResult Index([FromForm] string query)
         {
-            this.bookRepository = bookRepository;
-        }
-        public IActionResult Index(string query)
-        {
-
+            Console.WriteLine(query);
             var books = bookRepository.GetAllByTitle(query);
-
             return View(books);
         }
     }
