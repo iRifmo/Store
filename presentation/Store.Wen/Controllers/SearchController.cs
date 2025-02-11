@@ -4,12 +4,17 @@ namespace Store.Wen.Controllers
 {
     public class SearchController(IBookRepository bookRepository) : Controller
     {
-        private readonly IBookRepository bookRepository = bookRepository;
+        private readonly BookService bookService;
 
-        public IActionResult Index([FromForm] string query)
+        public SearchController(BookService bookService)
         {
-            Console.WriteLine(query);
-            var books = bookRepository.GetAllByTitle(query);
+            this.bookService = bookService;
+        }
+        
+        public IActionResult Index(string query)
+        {
+            var books = bookService.GetAllByQuery(query);
+            
             return View(books);
         }
     }
