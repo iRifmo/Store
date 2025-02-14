@@ -2,7 +2,7 @@
 
 namespace Store.Wen.Controllers
 {
-    public class SearchController(IBookRepository bookRepository) : Controller
+    public class SearchController : Controller
     {
         private readonly BookService bookService;
 
@@ -10,11 +10,11 @@ namespace Store.Wen.Controllers
         {
             this.bookService = bookService;
         }
-        
         public IActionResult Index(string query)
         {
+
             var books = bookService.GetAllByQuery(query);
-            
+
             return View(books);
         }
     }
