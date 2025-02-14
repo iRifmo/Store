@@ -12,14 +12,18 @@ public class Book
     
     public string Title {  get; }
 
-    public Book(int id, string isbn, string author, string title)
+    public string Description { get; }
+
+    public decimal Price { get; }
+
+    public Book(int id, string isbn, string author, string title, string description, decimal price)
     {
         Id = id;
-
         Isbn = isbn;
         Author = author;
-
         Title = title;
+        Description = description;
+        Price = price;
     }
 
     internal static bool IsIsbn(string s)
